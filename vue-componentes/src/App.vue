@@ -1,6 +1,7 @@
 <template>
-  <Boton :nombre="nombreBOton" :disabled="true"/>
-  <Boton type="" nombre="Eliminar"/>
+  <Boton :nombre="nombreBOton" disabled class="success"/>
+  <Boton type="submit" nombre="Eliminar" clase="danger"/>
+  <Boton type="submit" nombre="Cuidado!" clase="warning"/>
 </template>
 
 <script setup lang="ts">
