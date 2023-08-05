@@ -12,6 +12,7 @@
       <Boton 
         nombre="Eliminar"
         clase="danger"
+        @click="emit('accionEliminar',id)"
       />
     </div>
   </div>
@@ -20,6 +21,7 @@
 <script setup lang="ts">
 import Boton from './Boton.vue';
 
+const emit = defineEmits(['accionEliminar'])
 
 defineProps({
   titulo:{
@@ -29,7 +31,8 @@ defineProps({
   cuerpo:{
     type: String,
     required: true
-  }
+  },
+  id: Number
 })
 </script>
 

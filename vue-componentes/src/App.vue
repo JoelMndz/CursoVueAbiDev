@@ -6,8 +6,10 @@
   <CardNoticia
     v-for="noticia in listaNoticias"
     :key="noticia.id"
+    :id="noticia.id"
     :titulo="noticia.titulo"
-    :cuerpo="noticia.cuerpo"/>
+    :cuerpo="noticia.cuerpo"
+    @accionEliminar="eliminarNoticia"/>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -33,6 +35,10 @@ const listaNoticias = ref([
     cuerpo: 'Mediante el uso de tecnología avanzada de exploración submarina, un equipo de científicos ha descubierto ruinas antiguas en el lecho marino. Estas ruinas podrían arrojar luz sobre civilizaciones perdidas de la historia.',
   }
 ]);
+
+const eliminarNoticia = (id:number)=>{
+  listaNoticias.value = listaNoticias.value.filter(x => x.id !== id);
+}
 </script>
 
 <style scoped>
