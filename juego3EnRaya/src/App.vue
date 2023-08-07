@@ -71,10 +71,10 @@ const verificarHorizontalmente = (fila: number, figura:string)=>{
 }
 
 const verificarDiagonalmente = (figura:string)=>{
-  if(tablero.value[0][0] === figura && tablero.value[2][2] === figura){
+  if(tablero.value[0][0] === figura && tablero.value[2][2] === figura && tablero.value[1][1] === figura){
     return true
   }
-  if(tablero.value[2][0] === figura && tablero.value[0][2] === figura){
+  if(tablero.value[2][0] === figura && tablero.value[0][2] === figura && tablero.value[1][1] === figura){
     return true;
   }
   return false;
