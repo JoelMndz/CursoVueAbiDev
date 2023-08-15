@@ -8,7 +8,6 @@
         :key="usuario.id">
         <RouterLink :to="`/usuario-detalle/${usuario.id}`">
           {{ usuario.last_name }} {{ usuario.first_name }}
-
         </RouterLink>
       </li>
     </ul>
