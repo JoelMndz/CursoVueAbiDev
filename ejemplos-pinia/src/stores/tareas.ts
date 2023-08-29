@@ -8,7 +8,7 @@ interface ITarea{
 interface IState{
   tareas: ITarea[],
   mostrarFormulario: boolean,
-  tareasActual: null | ITarea 
+  tareasActual: null | ITarea
 }
 
 export const useTareaStore = defineStore('tarea',{
@@ -26,8 +26,10 @@ export const useTareaStore = defineStore('tarea',{
     obtenerTareas(){
 
     },
-    eliminarTareas(){
-
+    eliminarTarea(indice: number){
+      this.tareas = this.tareas.filter((x, i) => i !== indice)
+      console.log(this.tareas);
+      
     }
   },
   getters:{
