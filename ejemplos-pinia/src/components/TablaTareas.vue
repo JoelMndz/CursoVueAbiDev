@@ -3,7 +3,7 @@
   <thead>
     <tr>
       <th scope="col">Nombre</th>
-      <th scope="col">Pnediente</th>
+      <th scope="col">Pendiente</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -18,18 +18,20 @@
           @click="eliminarTarea(indice)">❌</span>
       </td>
     </tr>
-
   </tbody>
 </table>
 </template>
 
 <script setup lang="ts">
 import {useTareaStore} from "@/stores/tareas";
+import { storeToRefs } from "pinia";
 import {computed} from "vue";
 
 const tareaStore = useTareaStore()
 const {eliminarTarea} = tareaStore
-const tareas = computed(()=> tareaStore.tareas) 
+// const tareas = computed(()=> tareaStore.tareas) 
+const {tareas} = storeToRefs(tareaStore)
+
 
 </script>
 

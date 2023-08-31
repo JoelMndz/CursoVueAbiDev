@@ -20,8 +20,8 @@ export const useTareaStore = defineStore('tarea',{
     }
   ),
   actions:{
-    crearTarea(){
-
+    crearTarea(nombre:string){
+      this.tareas.push({nombre, completado:false})
     },
     obtenerTareas(){
 
