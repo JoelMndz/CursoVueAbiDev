@@ -22,14 +22,17 @@ export const useTareaStore = defineStore('tarea',{
   actions:{
     crearTarea(nombre:string){
       this.tareas.push({nombre, completado:false})
+      localStorage.setItem('tareas',JSON.stringify(this.tareas))
     },
     obtenerTareas(){
-
+      const data = localStorage.getItem('tareas')
+      if(data){
+        this.tareas = JSON.parse(data)
+      }     
     },
     eliminarTarea(indice: number){
       this.tareas = this.tareas.filter((x, i) => i !== indice)
-      console.log(this.tareas);
-      
+      localStorage.setItem('tareas',JSON.stringify(this.tareas))      
     }
   },
   getters:{
