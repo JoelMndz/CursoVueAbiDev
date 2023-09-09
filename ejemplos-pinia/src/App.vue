@@ -36,8 +36,8 @@ import { useTareaStore } from "./stores/tareas";
 
 const contadorStore = useContadorStore();
 const tareaStore = useTareaStore()
-onMounted(()=>{
-  tareaStore.obtenerTareas()
-})
+// onMounted(()=>{
+//   tareaStore.obtenerTareas()
+// })
 </script>
 
