@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import { useErroStore } from "./error";
 
 interface ITarea{
   nombre: string,
@@ -21,8 +22,14 @@ export const useTareaStore = defineStore('tarea',{
   ),
   actions:{
     crearTarea(nombre:string){
-      this.tareas.push({nombre, completado:false})
+      const errorStore = useErroStore()
       //localStorage.setItem('tareas',JSON.stringify(this.tareas))
+      const existe = this.tareas.find(x => x.nombre.toLocaleLowerCase() === nombre.toLocaleLowerCase())
+      if(existe){
+        errorStore.setMensaje('El nombre de la tarea ya existe!')
+        return;
+      }
+      this.tareas.push({nombre, completado:false})
     },
     obtenerTareas(){
       const data = localStorage.getItem('tareas')
