@@ -1,8 +1,10 @@
 <template>
-  <div v-if="mensaje" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>{{ mensaje }}</strong>
-    <button @click="errorStore.resetearMensaje()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
+  <VAlert v-if="mensaje"  color="error">
+    {{ mensaje }}
+    <template #close>
+      <VBtn @click="errorStore.resetearMensaje()">✖</VBtn>
+    </template>
+  </VAlert>
 </template>
 
 <script setup lang="ts">
